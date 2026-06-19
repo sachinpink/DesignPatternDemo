@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.List;
 
 public class LoginPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     By searchInput = By.xpath("//textarea[@title='Search']");
     By suggestionList = By.xpath("(//ul[@role='listbox'])[1]/li/descendant::div[@class='wM6W7d']/span");
