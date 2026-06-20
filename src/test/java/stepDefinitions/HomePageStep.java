@@ -2,17 +2,12 @@ package stepDefinitions;
 
 import DriverManagment.DriverFactory;
 import Pages.HomePage;
-import Pages.LoginPage;
-import com.Utils;
 import io.cucumber.java.Before;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class HomePageStepdefs
+public class HomePageStep
 {
     private WebDriver driver;
     private HomePage homePage;
@@ -20,10 +15,8 @@ public class HomePageStepdefs
     @Before()
     public void setupStepDefinitions()
     {
-
         driver = DriverFactory.getInstance().getDriver();
         homePage =new HomePage(driver);
-
     }
 
     @Then("User should be able to login successfully")
@@ -35,13 +28,20 @@ public class HomePageStepdefs
     @And("User add the product into card which having name {string}")
     public void userAddTheProductIntoCardWhichHavingName(String productName)
     {
-        WebElement addToCart=  driver.findElement(By.xpath("//div[text()='"+productName+"']/ancestor::div[@class='inventory_item_label']/following-sibling::div//button"));
-        Utils.clickByJs(driver,addToCart);
+        homePage.selectProductAndClickOnAddToCart(productName);
 
     }
 
-    @And("Verify User is on Cart page")
-    public void verifyUserIsOnCartPage() throws InterruptedException {
-        homePage.clickOnCartAndCheckOut();
+
+    @And("Verify the {string} is added into cart")
+    public void verifyTheIsAddedIntoCart(String product)
+    {
+        homePage.verifyProductInCart(product);
+
+    }
+
+    @And("User Clicks on Checkout button from cart page")
+    public void userClicksOnCheckoutButtonFromCartPage() throws InterruptedException {
+        homePage.clickOnCheckOut();
     }
 }
