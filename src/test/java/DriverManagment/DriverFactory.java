@@ -1,12 +1,6 @@
 package DriverManagment;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class DriverFactory
 {
@@ -21,14 +15,19 @@ public class DriverFactory
         }
         return instance;
     }
-    public  BroweserDriverManager getDriverManager(String browser)
-    {
-        return switch (browser) {
-            case "chrome" -> new ChromeDriverManager();
-            case "edge" -> new EdgeDriverManager();
-            default -> throw new RuntimeException("provide correct browser name");
-        };
 
+    public BroweserDriverManager getDriverManager(String browser) {
+        switch (browser) {
+            case "chrome": {
+                return new ChromeDriverManager();
+            }
+            case "edge": {
+                return new EdgeDriverManager();
+            }
+            default: {
+                throw new RuntimeException("provide correct browser name");
+            }
+        }
     }
      public void setDriver(WebDriver driver)
      {

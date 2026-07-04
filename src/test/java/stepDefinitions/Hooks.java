@@ -10,8 +10,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -41,14 +39,12 @@ public  class Hooks
             else
             {
                 DesiredCapabilities capabilities=new DesiredCapabilities();
-                capabilities.setBrowserName("chrome");
-                String urlString="http://localhost:4444/wd/hub";
-                URL url =new URI(urlString).toURL();
-                driver=new RemoteWebDriver(url,capabilities);
+                capabilities.setBrowserName(browser);
+                URL url = new URL("http://localhost:4444/wd/hub");
+                driver = new RemoteWebDriver(url,capabilities);
                 DriverFactory.getInstance().setDriver(driver);
-                //DriverManager.setDriver(driver);
                 driver = DriverFactory.getInstance().getDriver();
-                driver.get("https://www.google.com");
+                driver.get("https://www.saucedemo.com/");
             }
         }
     }

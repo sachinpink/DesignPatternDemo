@@ -35,6 +35,6 @@ public class Utils
      public static void clickByJs(WebDriver driver, WebElement element)
      {
          JavascriptExecutor js = (JavascriptExecutor) driver;
-         js.executeScript("arguments[0].click()", element);
+         js.executeScript("arguments[0].click();", element);
      }
 }
