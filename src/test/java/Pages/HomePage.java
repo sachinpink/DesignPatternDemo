@@ -42,7 +42,7 @@ public class HomePage
         boolean flag=false;
         for(int i=0;i<products.size();i++)
         {
-            System.out.println("Product Name =" + products.get(i).getText());
+            System.out.println("Product Name = " + products.get(i).getText());
             if(productName.equalsIgnoreCase(products.get(i).getText()))
             {
                 int num=i+1;
