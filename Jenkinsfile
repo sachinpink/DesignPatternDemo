@@ -18,9 +18,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh "mvn clean test -Dbrowser=${params.BROWSER} -DUI_Execution=yes -DlocalExecution=${params.LocalExecuation} -Dcucumber.filter.tags='${params.TAGS}'"
+                        sh "mvn clean test -Dbrowser=${params.BROWSER} -DUI_Execution=yes -DlocalExecution=${params.LocalExecuation} -Dcucumber.filter.tags=${params.TAGS}"
                     } else {
-                        bat "mvn -B clean test -Dbrowser=${params.BROWSER} -DUI_Execution=yes -DlocalExecution=${params.LocalExecuation} -Dcucumber.filter.tags='${params.TAGS}'"
+                        bat "mvn -B clean test -Dbrowser=${params.BROWSER} -DUI_Execution=yes -DlocalExecution=${params.LocalExecuation} -Dcucumber.filter.tags=${params.TAGS}"
                     }
                 }
             }
