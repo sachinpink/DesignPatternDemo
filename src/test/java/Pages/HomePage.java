@@ -16,6 +16,12 @@ public class HomePage
     By checkOutButton = By.xpath("//button[@name='checkout']");
     By cardLink = By.xpath("//a[@class='shopping_cart_link']");
     By productInCart = By.cssSelector(".inventory_item_name");
+    By firstNameInput= By.id("first-name");
+    By lastNameInput= By.id("last-name");
+    By zipCodeInput = By.id("postal-code");
+    By continueButton = By.id("continue");
+    By finishButton = By.id("finish");
+    By orderSuccessMessage = By.xpath("//h2[text()='Thank you for your order!']");
 
     public HomePage(WebDriver driver)
     {
@@ -78,5 +84,21 @@ public class HomePage
         Utils.clickByJs(driver, Utils.waitForLocaterToBeClickable(driver, checkOutButton, 30));
         Utils.waitForSomeTime(3000);
 
+    }
+
+    public void enterUserDetails()
+    {
+        Utils.waitForLocaterToBeClickable(driver,firstNameInput,10);
+        driver.findElement(firstNameInput).sendKeys("Sachin");
+        driver.findElement(lastNameInput).sendKeys("Zagade");
+        driver.findElement(zipCodeInput).sendKeys("1234");
+        driver.findElement(continueButton).click();
+        Utils.waitForLocaterToBeClickable(driver,finishButton,10);
+        driver.findElement(finishButton).click();
+    }
+
+    public void verifyOrderStatus()
+    {
+        Utils.waitForVisible(driver, orderSuccessMessage,10);
     }
 }
