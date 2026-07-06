@@ -56,7 +56,7 @@ public  class Hooks
         {
              byte[]  snap = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
              scenario.attach(snap,"image/png", scenario.getName());
-        }
+       }
     }
 
     @After()

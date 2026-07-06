@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/resources",
         glue={"stepDefinitions"},
         tags="@demo",
-        plugin = {"rerun:reRun.txt"}
+        plugin = {"rerun:reRun.txt","pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 
 )
 public class TestRunner extends AbstractTestNGCucumberTests

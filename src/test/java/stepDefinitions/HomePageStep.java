@@ -3,6 +3,7 @@ package stepDefinitions;
 import DriverManagment.DriverFactory;
 import Pages.HomePage;
 import io.cucumber.java.Before;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
@@ -43,5 +44,18 @@ public class HomePageStep
     @And("User Clicks on Checkout button from cart page")
     public void userClicksOnCheckoutButtonFromCartPage() throws InterruptedException {
         homePage.clickOnCheckOut();
+    }
+
+    @And("User enter the User details")
+    public void userEnterTheUserDetails()
+    {
+        homePage.enterUserDetails();
+    }
+
+    @And("I verify the Order is placed successfully")
+    public void iVerifyTheOrderIsPlacedSuccessfully()
+    {
+        homePage.verifyOrderStatus();
+
     }
 }

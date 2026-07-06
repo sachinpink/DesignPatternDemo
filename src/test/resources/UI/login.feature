@@ -7,7 +7,10 @@ Feature: Test Login & add product functionality of application
     And User add the product into card which having name "<product>"
     And Verify the "<product>" is added into cart
     And User Clicks on Checkout button from cart page
+    And User enter the User details
+    And I verify the Order is placed successfully
     Examples:
-      | UserName      | Password     | product           |
-      | standard_user | secret_sauce | Sauce Labs Onesie |
+      | UserName      | Password     | product             |
+      | standard_user | secret_sauce | Sauce Labs Onesie   |
+      | standard_user | secret_sauce | Sauce Labs Backpack |
 
